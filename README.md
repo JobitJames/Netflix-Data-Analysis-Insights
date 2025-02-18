@@ -32,8 +32,8 @@ requirements.txt    # Dependencies
 ## 🚀 Getting Started
 1️⃣ Clone the repository:
 ```sh
-git clone https://github.com/<your-username>/Netflix-Data-Analysis.git
-cd Netflix-Data-Analysis
+git clone https://github.com/JobitJames/Netflix-Data-Analysis-Insights.git
+cd /Netflix-Data-Analysis-Insights
 ```
 2️⃣ Install dependencies:
 ```sh
