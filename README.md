@@ -3,6 +3,7 @@
 🚀 **Uncovering Patterns and Trends in Netflix Content Using Data Analysis**
 
 ## 📌 Overview
+As an Data Analytic Student and a Netflix user, I wanted to analyze my own viewing habits and understand patterns in my watch history. This deep dive into my Netflix data reveals interesting insights into my most-watched titles, watch time distribution across different profiles, and device usage trends.
 This project focuses on analyzing **Netflix's content catalog** using Python and data visualization techniques. The dataset includes information about movies, TV shows, release years, genres, and other attributes. The analysis aims to **extract insights**, such as content distribution, trends over time, and popular genres.
 
 ## 📊 Key Insights & Features
