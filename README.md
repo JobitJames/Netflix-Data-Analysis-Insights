@@ -20,11 +20,12 @@ This project focuses on analyzing **Netflix's content catalog** using Python and
 ## 📂 Project Structure
 ```
 Netflix-Data-Analysis/
-│── data/               # Raw and cleaned datasets
-│── notebooks/          # Jupyter Notebooks with analysis
-│── visualizations/     # Generated charts and graphs
-│── README.md           # Project Documentation
-│── requirements.txt    # Dependencies
+  │── img/               # visualizations
+  │── index.html         
+  │── script.js     #Javascript
+  │── styles.css     #CSS
+README.md           # Project Documentation
+requirements.txt    # Dependencies
 ```
 
 ## 🚀 Getting Started
