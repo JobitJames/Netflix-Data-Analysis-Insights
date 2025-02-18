@@ -24,6 +24,7 @@ Netflix-Data-Analysis/
   │── index.html         
   │── script.js     #Javascript
   │── styles.css     #CSS
+  │── requirements.txt    # Dependencies
 README.md           # Project Documentation
 requirements.txt    # Dependencies
 ```
