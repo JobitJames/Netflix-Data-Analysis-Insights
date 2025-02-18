@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Data Analysis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #333;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        header {
+            background: #fff;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo a {
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #333;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+        nav ul li {
+            margin-left: 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #000;
+        }
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            background: url('https://via.placeholder.com/1200x400') center/cover no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 36px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .content {
+            width: 80%;
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #f4f4f4;
+            color: #333;
+            margin-top: 20px;
+        }
+        .article-image {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="/">
+                        <img src="/blog/img/logo.png" alt="Jobit James Logo">
+                        <span>Jobit James</span>
+                    </a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="https://www.linkedin.com/in/j-james-73849b350" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                        <li><a href="#"><i class="fas fa-search"></i></a></li> <!-- Search Icon -->
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <div class="content">
+        <!-- Image placed just above the heading -->
+        <img src="/blog/img/01.jpg" alt="Netflix Data Analysis" class="article-image">
+        <article>
+            <h2>Analyzing My Netflix Viewing Trends</h2>
+            <p><em>As an Data Analytic Student and a Netflix user, I wanted to analyze my own viewing habits and 
+                understand patterns in my watch history. This deep dive into my Netflix data reveals 
+                interesting insights into my most-watched titles, watch time distribution across different profiles, 
+                and device usage trends.</em></p>
+            <p>Netflix viewing trends can reveal valuable insights into user preferences and engagement. Below are key findings from our analysis.</p>
+            
+            <h3>Most Popular Titles</h3>
+            <p>The top five most-watched titles on Netflix from our dataset are:</p>
+            <ul>
+                <li><strong>Anweshippin Kandethum</strong> - Watched 18 times</li>
+                <li><strong>Hidden Strike</strong> - Watched 15 times</li>
+                <li><strong>RDX</strong> - Watched 13 times</li>
+                <li><strong>Devara</strong> - Watched 13 times</li>
+                <li><strong>Kuttavum Shikshayum</strong> - Watched 12 times</li>
+            </ul>
+            
+            <h3>Watch Hours per Profile</h3>
+            <p>Each profile has spent the following hours watching content on Netflix:</p>
+            <ul>
+                <li><strong>Jobit</strong>: 235.7 hours</li>
+                <li><strong>Roku TV</strong>: 269.9 hours</li>
+                <li><strong>TV</strong>: 139.2 hours</li>
+                <li><strong>Friends</strong>: 7.8 hours</li>
+            </ul>
+            
+            <h3>Device Usage by 'Friends' Profile</h3>
+            <p>The 'Friends' profile used the following devices to watch Netflix:</p>
+            <ul>
+                <li><strong>Mobile</strong>: 5 times</li>
+                <li><strong>Smart TV</strong>: 3 times</li>
+                <li><strong>Laptop</strong>: 2 times</li>
+            </ul>
+            
+            <h3>Titles Watched by All Profiles</h3>
+            <p>From our dataset, the following title was watched by all profiles:</p>
+            <ul>
+                <li><strong>Hidden Strike</strong></li>
+            </ul>
+            
+            <p>Analyzing Netflix data allows us to uncover viewing preferences, habits, and trends that can help improve content recommendations and enhance user experience.</p>
+        </article>
+    </div>
+    <footer>
+        <p>&copy; 2025 Haley Dust Blog. All rights reserved.</p>
+    </footer>
+</body>
+</html>

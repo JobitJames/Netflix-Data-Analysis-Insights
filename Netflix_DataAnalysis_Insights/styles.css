@@ -1,0 +1,335 @@
+.hero-image {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px; /* Adds space below the image */
+    border-radius: 8px; /* Optional: Adds rounded corners */
+}
+.image-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.image-container img {
+    max-width: 50%;
+    height: auto;
+    border-radius: 8px; /* Optional: Adds rounded corners */
+}
+
+.caption {
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
+}
+
+/* Code Block Styling */
+.code-container {
+    position: relative;
+    background: #f0f0f0; /* Light white background */
+    border: 1px solid #e0e0e0; /* Light gray border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 8px 8px 8px 1px; /* Top, Right, Bottom, Left */
+
+    font-size: 16px; /* Slightly smaller font size */
+    line-height: 1.5; /* Line height for better readability */
+    margin: 20px 0; /* Margin for spacing */
+    overflow-x: auto; /* Horizontal scroll for long lines */
+    font-family: 'Courier New', Courier, monospace; /* Monospace font */
+    text-align: left; /* Left-align text */
+}
+
+.code-container pre {
+    margin: 0; /* Remove default margin */
+}
+
+.code-container code {
+    color: #333; /* Dark gray text color */
+    font-weight: 500; /* Slightly bold text */
+    white-space: pre-wrap; /* Preserve line breaks */
+}
+
+.copy-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #f0f0f0; /* Light gray background */
+    color: #333; /* Dark gray text */
+    border: 1px solid #e0e0e0; /* Light gray border */
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px; /* Smaller font size */
+    font-family: Arial, sans-serif; /* Sans-serif font for button */
+}
+
+.copy-button:hover {
+    background: #e0e0e0; /* Slightly darker background on hover */
+}
+
+.code-container code .comment {
+    color: #228B22; /* Green color for comments */
+    font-style: italic;
+ /* Optional: Italicize comments */
+}
+
+.image-containers {
+    text-align: left;
+    margin: 10px 0;
+}
+
+.image-containers img {
+    max-width: 20%;
+    height: auto;
+    border-radius: 8px; /* Optional: Adds rounded corners */
+}
+
+
+.image-container1 {
+    text-align: left;
+    margin: 10px 100;
+}
+
+.image-container1 img {
+    max-width: 120%;
+    height: auto;
+    border-radius: 8px; /* Optional: Adds rounded corners */
+}
+.image-container2 img {
+    max-width: 80%;
+    height: auto;
+    border-radius: 8px; /* Optional: Adds rounded corners */
+}
+
+
+.description-box {
+    background: #f9f9f9; /* Light gray background */
+    border: 1px solid #e0e0e0; /* Light gray border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 16px; /* Padding inside the box */
+    margin: 0px 0; /* Margin for spacing */
+    font-size: 14px; /* Font size */
+    line-height: 1.6; /* Line height for better readability */
+}
+
+.description-box p {
+    margin: 8px 0; /* Spacing between paragraphs */
+}
+
+.description-box strong {
+    color: #333; /* Dark gray text for column names */
+}
+
+
+.profile-box {
+    background: #f9f9f9; /* Light gray background */
+    border: 1px solid #e0e0e0; /* Light gray border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 16px; /* Padding inside the box */
+    margin: 30px 0; /* Margin for spacing */
+    font-size: 14px; /* Font size */
+    line-height: 1.6; /* Line height for better readability */
+}
+
+.profile-box p {
+    margin: 0 0 10px 0; /* Spacing below the paragraph */
+}
+
+.profile-box ul {
+    margin: 0; /* Remove default margin */
+    padding-left: 20px; /* Indent bullet points */
+}
+
+.profile-box li {
+    margin: 8px 0; /* Spacing between list items */
+}
+
+.profile-box strong {
+    color: #333; /* Dark gray text for profile names */
+}
+
+
+.notice-box {
+    background: #f9f9f9; /* Light gray background */
+    border: 1px solid #e0e0e0; /* Light gray border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 16px; /* Padding inside the box */
+    margin: 20px 0; /* Margin for spacing */
+    font-size: 14px; /* Font size */
+    line-height: 1.6; /* Line height for better readability */
+}
+
+.notice-box p {
+    margin: 0 0 10px 0; /* Spacing below paragraphs */
+}
+
+.notice-box ul {
+    margin: 0 0 10px 0; /* Spacing below lists */
+    padding-left: 20px; /* Indent bullet points */
+}
+
+.notice-box li {
+    margin: 8px 0; /* Spacing between list items */
+}
+
+.notice-box code {
+    background: #e0e0e0; /* Light gray background for code */
+    padding: 2px 4px; /* Padding for code */
+    border-radius: 4px; /* Rounded corners for code */
+    font-family: 'Courier New', Courier, monospace; /* Monospace font for code */
+    font-size: 13px; /* Slightly smaller font size for code */
+}
+
+
+.question-box {
+    background: #f0f8ff;  /* Light blue background */
+    border-left: 4px solid #2196F3;  /* Blue accent border */
+    border-radius: 8px;
+    padding: 20px;
+    margin: 25px 0;
+    position: relative;
+}
+
+.question-box::before {
+    content: "?";
+    position: absolute;
+    top: 15px;
+    left: -30px;
+    font-size: 24px;
+    color: #2196F3;
+    font-weight: bold;
+}
+
+.question-box h3 {
+    color: #1565C0;
+    margin: 0 0 15px 0;
+    font-size: 1.25rem;
+}
+
+.question-box ul {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+.question-box li {
+    margin: 8px 0;
+    color: #333;
+}
+
+
+
+.answer-container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.hidden {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    display: none;
+}
+
+.visible {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.analysis-section {
+    margin: 2rem 0;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.analysis-step {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.result-box {
+    background: #e9ecef;
+    padding: 1rem;
+    border-radius: 6px;
+    margin: 1rem 0;
+    font-family: monospace;
+}
+
+.comparison-box {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.comparison-item {
+    padding: 1rem;
+    background: white;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+}
+
+.time-change {
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+}
+
+.old-time {
+    color: #6c757d;
+    text-decoration: line-through;
+}
+
+.new-time {
+    color: #2b8a3e;
+    font-weight: bold;
+}
+
+.key-insights {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: #fff3cd;
+    border-radius: 8px;
+    border-left: 4px solid #ffd43b;
+}
+
+.result-box table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.result-box th, .result-box td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.result-box th {
+    background-color: #f2f2f2;
+}
+
+.result-box tr:nth-child(even) {
+    background-color: #f9f9f9;
+}

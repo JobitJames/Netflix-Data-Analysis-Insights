@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Data Analysis</title>
+    <script src="script.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+   
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo a {
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #333;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #000;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #666;
+        }
+
+        /* Content Section */
+        .content {
+            margin-top: 40px;
+        }
+
+        .content h2 {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .content h3 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .content p {
+            font-size: 16px;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        .content ul {
+            margin-bottom: 20px;
+        }
+
+        .content ul li {
+            margin-bottom: 10px;
+        }
+
+        .content blockquote {
+            border-left: 4px solid #333;
+            padding-left: 15px;
+            color: #666;
+            font-style: italic;
+            margin: 20px 0;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #f4f4f4;
+            color: #333;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="/">Jobit James</a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="https://www.linkedin.com/in/j-james-73849b350" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div class="container">
+            <!-- Image above the hero content -->
+            <img src=" /img/01.jpg" alt="Netflix Data Analysis" class="hero-image">
+            <h1>Netflix Data Analysis Insights</h1>
+            <p><em>As an Data Analytic Student and a Netflix user, I wanted to analyze my own viewing habits and 
+                understand patterns in my watch history. This deep dive into my Netflix data reveals 
+                interesting insights into my most-watched titles, watch time distribution across different profiles, 
+                and device usage trends.</em></p>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="container">
+            <article>
+                <p>Netflix viewing trends can reveal valuable insights into user preferences and engagement. Below are key findings from my analysis.</p>
+                <p>Netflix allows you to download your entire watch history, providing a great opportunity to build exciting data science projects. In this guide, I'll walk you through:</p>
+                <ul>
+                    <li>Extracting raw data from Netflix</li>
+                    <li>Cleaning and transforming the dataset</li>
+                    <li>Creating insightful visualizations from the data</li>
+                </ul>
+                <hr> <!-- Horizontal line -->
+                <h2>📑 <strong>Getting The Raw Data</strong></h2>
+                <p>Netflix lets you request and download your personal viewing data. Here’s how you can do it:</p>
+                <ol>
+                    <li>Go to Netflix’s <a href="https://www.netflix.com/account/getmyinfo" target="_blank" rel="noopener noreferrer">"Get My Info"</a> page and submit a data request.</li>
+                    <li>Confirm your request via the email Netflix sends you.</li>
+                    <li>Wait for the data to be processed—this usually takes less than a day.</li>
+                    <li>Download the .zip file from the second email you receive, which contains your data in a structured format.</li>
+                </ol>
+                <div class="image-container">
+                    <img src=" /img/structure.png" alt="Netflix Data Folder Structure">
+                    <p class="caption">The folder structure of your Netflix data will look like this.</p>
+                </div>
+                <p>✅ Extract the downloaded .zip file and navigate to the <strong>CONTENT_INTERACTION</strong> folder. Inside, you'll find a file named <strong>ViewingActivity.csv</strong>, which contains a complete record of your Netflix watch history. This file serves as the foundation for analyzing your viewing habits and building data-driven insights.</p>
+                <hr>
+                <h2>🔍 Analyze the Dataset</h2>
+                <p>I’m using Python in a Jupyter Notebook to explore the data, but you can also use a standard Python script. To get an initial overview of the dataset, we first need to install and import Pandas, then load the file into a Pandas DataFrame for analysis.</p>
+
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyCode()">Copy</button>
+                    <pre><code id="code-block">
+                        
+        <span class="comment">Install Pandas (if not already installed)</span>
+        !pip install pandas
+                        
+        <span class="comment"># Import Pandas</span>
+        import pandas as pd
+                        
+        <span class="comment"># Load the dataset into a DataFrame</span>
+        df = pd.read_csv('ViewingActivity.csv')
+        </code></pre>
+        </div>
+            
+                <p>Let's take a look at the first five rows of our dataset using .head().</p>
+        <div class="code-container">
+        <button class="copy-button" onclick="copyCode2()">Copy</button>
+        <pre><code id="code-block-2">
+        <span class="comment">To view the first 5 rows</span># 
+        netflix.head()
+        </code></pre>
+
+        </div>
+                
+                <div class="image-container1 ">
+                    <img src=" /img/head.png" alt="Netflix Data Folder Structure">
+                    
+                </div>
+
+                <p>Let's see How many rows and columns are present in the dataset?.</p>
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyCode2()">Copy</button>
+            <pre><code id="code-block-2">
+        <span class="comment">To view the rows and columns </span># 
+        netflix.shape
+                        
+                    </code></pre>
+
+                </div>
+
+                <div class="image-containers">
+                    <img src=" /img/shape.png" alt="Netflix Data Folder Structure">
+                    
+                </div>
+            
+                <div class="description-box">
+                    <p><mark>Here we have 4472 rows of data structured into 10 columns.</mark></p>
+                    <p><strong>Column Descrpition</strong></p>
+                    <p><strong>Profile Name</strong> – The name of the Netflix profile that watched the content.</p>
+                    <p><strong>Start Time</strong> – The timestamp when the content was started. (Redacted in the screenshot).</p>
+                    <p><strong>Duration</strong> – The total time spent watching that particular content.</p>
+                    <p><strong>Attributes</strong> – Additional metadata, such as whether the content was auto-played.</p>
+                    <p><strong>Title</strong> – The name of the movie, series, or trailer watched.</p>
+                    <p><strong>Supplemental Video</strong> – Specifies if the content is a trailer, preview, or part of a larger series.</p>
+                    <p><strong>Device Type</strong> – The type of device used for streaming (e.g., Chrome PC, Safari Mac).</p>
+                    <p><strong>Bookmark</strong> – The timestamp where the user stopped watching during the session.</p>
+                    <p><strong>Latest Bookmark</strong> – The latest viewing position, indicating if the content was fully watched or stopped midway.</p>
+                    <p><strong>Country</strong> – The country from which the content was accessed (e.g., CA for Canada, IN for India).</p>
+                </div>
+                <p> Lets get the information of all columns</p>
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyCode2()">Copy</button>
+                    <pre><code id="code-block-2">
+        <span class="comment">To get the information of all columns </span># 
+        netflix.info()
+                        
+                    </code></pre>
+
+                </div>
+                <div class="image-container">
+                    <img src=" /img/info.png" alt="Netflix Data Folder Structure">
+                    
+                </div>
+            
+                <p> Let's explore the 'Profile Name' column in detail.</p>
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyCode2()">Copy</button>
+                    <pre><code id="code-block-2">
+        <span class="comment">#Lets check the unique Profile Name values</span># 
+        netflix['Profile Name'].unique()
+                        
+                    </code></pre>
+
+                </div>
+                <div class="image-container1">
+                    <img src=" /img/profiles.png" alt="Netflix Data Folder Structure">
+                    
+                </div>
+
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyCode2()">Copy</button>
+                    <pre><code id="code-block-2">
+                        <span class="comment"></span>
+        netflix['Profile Name'].value_counts()
+                        
+                    </code></pre>
+
+                </div>
+                <div class="image-container">
+                    <img src=" /img/profilen.png" alt="Netflix Data Folder Structure">
+                    
+                </div>
+
+                
+                
+<div class="profile-box">
+    <p><strong>It looks like four different profiles are using my Netflix account:</strong></p>
+    <ul>
+        <li><strong>👤 Jobit</strong> – My personal profile</li>
+        <li><strong>👤 Roku TV</strong> – Used by my friends</li>
+        <li><strong>👤 TV</strong> – Dedicated for TV viewing</li>
+        <li><strong>👤 Friends</strong> – Shared among friends</li>
+    </ul>
+</div>
+
+
+
+
+<p> Let's explore the unique Device Type.</p>
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyCode2()">Copy</button>
+                    <pre><code id="code-block-2">
+                        <span class="comment"></span>
+        netflix['Device Type'].unique()
+                        
+                    </code></pre>
+
+                </div>
+                <div class="image-container2">
+                    <img src=" /img/device.png" alt="Netflix Data Folder Structure">
+                    
+                </div>
+
+
+
+
+
+                <p> Here, we are exploring our dataset and conducting an analysis..</p>
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyCode2()">Copy</button>
+                    <pre><code id="code-block-2">
+                        <span class="comment"></span>
+        netflix.dtypes
+                        
+                    </code></pre>
+
+                </div>
+                <div class="image-container">
+                    <img src=" /img/dtypes.png" alt="Netflix Data Folder Structure">
+                    
+                </div>
+
+
+                <p>All columns in our dataset are stored as <strong>object data types</strong>. </p>
+                    <p> 👉 To effectively work with times, dates, and durations—such as analyzing overall viewing times—I am going to convert them into appropriate formats.</p>
+
+
+                    <p>To ensure proper handling of date and time data, I converted the <strong>Start Time</strong> column to datetime format and the <strong>Duration</strong> column to timedelta format. Finally, I checked the data types of all columns using <code>dtypes</code>.</p>
+
+                    <div class="code-container">
+                        <button class="copy-button" onclick="copyCode2()">Copy</button>
+                        <pre><code id="code-block-4">
+        # Convert 'Start Time' to datetime format 
+        (day-first and UTC)
+
+        netflix['Start Time'] = 
+             pd.to_datetime(netflix['Start Time'], 
+             dayfirst=True, utc=True)
+                    
+        # Convert 'Duration' to timedelta format
+        netflix['Duration'] = 
+        pd.to_timedelta(netflix['Duration'])
+                    
+        # Check the data types of all columns
+        netflix.dtypes
+                        </code></pre>
+                    </div>
+
+
+                    <div class="image-container2">
+                        <img src=" /img/dtypes 2.png" alt="Netflix Data Folder Structure">
+                        
+                    </div>
+    
+
+
+
+<p>🕐📅 Both the ‘Start Time’ and ‘Duration’ columns are now in a proper format for analysis. Heres the comparision <strong>Before</strong> and <strong>After.</strong></p>
+
+
+
+  <div class="image-container2">
+                        <img src=" /img/vs.png" alt="Netflix Data Folder Structure">
+                        
+                    </div>
+    
+
+                    <div class="notice-box">
+                        <p><strong>The 'Start Time' column is now properly formatted as a datetime object in UTC format.</strong></p>
+                        <ul>
+                            <li>Each value follows this structure:</li>
+                            <ul>
+                                <li><code>YYYY-MM-DD HH:MM:SS+00:00</code>, where:</li>
+                                <ul>
+                                    <li><code>YYYY-MM-DD</code> → The year, month, and day of the activity.</li>
+                                    <li><code>HH:MM:SS</code> → The exact time in 24-hour format.</li>
+                                    <li><code>+00:00</code> → Indicates that the timestamp is in UTC time zone.</li>
+                                </ul>
+                            </ul>
+                            <li><strong>Examples:</strong></li>
+                            <ul>
+                                <li><code>2024-06-02 03:56:00+00:00</code> → Means the activity started on June 2, 2024, at 03:56 AM UTC.</li>
+                                <li><code>2025-01-09 18:10:00+00:00</code> → Means the activity started on January 9, 2025, at 06:10 PM UTC.</li>
+                            </ul>
+                        </ul>
+                    
+                        <p><strong>Explanation of the 'Duration' Column</strong></p>
+                        <ul>
+                            <li>The 'Duration' column is correctly converted to timedelta format, which represents the duration of the activity.</li>
+                            <li>Each value follows this structure:</li>
+                            <ul>
+                                <li><code>X days HH:MM:SS</code>, where:</li>
+                                <ul>
+                                    <li><code>X days</code> → Represents the number of full days in the duration.</li>
+                                    <li><code>HH:MM:SS</code> → Represents the duration in hours, minutes, and seconds.</li>
+                                </ul>
+                            </ul>
+                            <li><strong>Examples:</strong></li>
+                            <ul>
+                                <li><code>0 days 00:00:04</code> → The activity lasted for 4 seconds.</li>
+                                <li><code>0 days 00:42:15</code> → The activity lasted for 42 minutes and 15 seconds.</li>
+                            </ul>
+                        </ul>
+                    </div>
+
+                    <div class="question-box">
+                        <h3>📊 Now It's Time to Find Answers</h3> 
+                        <h4>🎨Visualize the data</h4>
+                        <p>The most effective way to explore the data is by visualizing it. Let's answer key questions like:</p>
+                        <ul>
+                            <h3>1. Which Profile has the most watching activities/interactions?</h2>
+
+                    </div>
+                    
+
+                    
+                    <div class="answer-container">
+                        <button onclick="showAnswer('answer2', 'The Profile Jobit got the most interactions.')">Show Answer</button>
+                        <p id="answer2" class="hidden"></p>
+                    </div>
+
+               
+                    <div class="code-container">
+                        <button class="copy-button" onclick="copyCode2()">Copy</button>
+                        <pre><code id="code-block-4">
+        netflix['Profile Name'].value_counts()
+                        </code></pre>
+                    </div>
+     
+                    <div class="image-container2">
+                        <img src=" /img/pro.png" alt="Netflix Data Folder Structure">
+                        
+                    </div>
+
+
+
+
+
+                    <div class="code-container">
+                        <button class="copy-button" onclick="copyCode2()">Copy</button>
+                        <pre><code id="code-block-4">
+        data = netflix['Profile Name'].value_counts().reset_index()
+        data
+                        </code></pre>
+                    </div>
+     
+
+
+                    <div class="image-container2">
+                        <img src=" /img/pro2.png" alt="Netflix Data Folder Structure">
+                        
+                    </div>
+
+                    <h3>Jobit received the highest number of interactions with 1,835, followed by Roku TV with 1,560 interactions. 🚀</h3>
+
+
+                    <p>We can use <strong>  Matplotlib </strong> to create a visual representation of this data, making it easier to compare interactions across different profiles at a glance. 📊🚀</p>
+                    
+                    
+                    <div class="code-container">
+                        <button class="copy-button" onclick="copyCode2()">Copy</button>
+                        <pre><code id="code-block-4">
+        import seaborn as sns
+        import matplotlib.pyplot as plt
+                            
+        data.columns = ['Profile Name', 'Interactions']  # Rename columns for clarity
+                            
+        # Create a bar plot
+        sns.barplot(data=data, x="Profile Name", y="Interactions", 
+            hue="Profile Name", palette="pastel", legend=False)
+                            
+        
+        # Adding Labels and names        
+        plt.xlabel("Profile Names")        
+        plt.ylabel("Interactions")
+        plt.title("Netflix Profiles and Interactions")
+        # Show the plot
+        plt.show()
+ </code></pre>
+                    </div>
+     <p>#The output shown below may have changed from the original visualization generated from the matplot code, 
+        here i used css and js to make it visually appeal</p>
+                    
+                    
+                    
+                    
+                    
+                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                    <h2>Netflix Profiles and Interactions</h2>
+                    <canvas id="netflixChart"></canvas>
+                
+                    <script>
+                        const ctx = document.getElementById('netflixChart').getContext('2d');
+                        const data = {
+                            labels: ["Jobit", "Roku TV", "TV", "Friends"],
+                            datasets: [{
+                                label: "Interactions",
+                                data: [1835, 1560, 991, 86],
+                                backgroundColor: ["#636efa", "#ef553b", "#00cc96", "#a95dfa"],
+                                borderColor: "#333",
+                                borderWidth: 1,
+                            }]
+                        };
+                        
+                        const config = {
+                            type: 'bar',
+                            data: data,
+                            options: {
+                                responsive: true,
+                                plugins: {
+                                    legend: { display: false },
+                                    tooltip: { enabled: true },
+                                },
+                                animation: {
+                                    duration: 2000,
+                                    easing: 'easeInOutBounce',
+                                },
+                                scales: {
+                                    y: {
+                                        beginAtZero: true
+                                    }
+                                }
+                            },
+                            plugins: [{
+                                afterDatasetsDraw: function(chart) {
+                                    const ctx = chart.ctx;
+                                    chart.data.datasets.forEach((dataset, i) => {
+                                        const meta = chart.getDatasetMeta(i);
+                                        meta.data.forEach((bar, index) => {
+                                            const data = dataset.data[index];
+                                            ctx.fillStyle = '#000';
+                                            ctx.font = 'bold 14px Arial';
+                                            ctx.textAlign = 'center';
+                                            ctx.fillText(data, bar.x, bar.y - 10);
+                                        });
+                                    });
+                                }
+                            }]
+                        };
+                        
+                        new Chart(ctx, config);
+                    </script>
+
+
+
+
+<div class="question-box">
+    
+        <h3>2. Which Profile watched the most (time)?</h2>
+
+</div>
+
+<div class="answer-container">
+    <button onclick="showAnswer('answer1', 'Roku TV : 269.9 hours')">Show Answer</button>
+    <p id="answer1" class="hidden"></p>
+</div>
+
+<p>First, let's analyze the total viewing duration across all profiles</p>
+<div class="code-container">
+    <button class="copy-button" onclick="copyCode2()">Copy</button>
+    <pre><code id="code-block-4">
+            netflix['Duration'].sum()
+    </code></pre>
+</div>
+<div class="image-container2">
+    <img src=" /img/td.png" alt="Netflix Data Folder Structure">
+    
+</div>
+
+<p>First, let's analyze the total viewing duration across all profiles</p>
+<div class="code-container">
+    <button class="copy-button" onclick="copyCode2()">Copy</button>
+    <pre><code id="code-block-4">
+        netflix.sort_values('Start Time').head()
+    </code></pre>
+</div>
+<div class="image-container2">
+    <img src=" /img/td2.png" alt="Netflix Data Folder Structure">
+    
+</div>
+
+
+<p>First, let's analyze the total viewing duration across all profiles</p>
+<div class="code-container">
+    <button class="copy-button" onclick="copyCode2()">Copy</button>
+    <pre><code id="code-block-4">
+        netflix.loc[netflix['Profile Name']=='Jobit','Duration'].sum()
+    </code></pre>
+</div>
+<div class="image-container2">
+    <img src=" /img/td3.png" alt="Netflix Data Folder Structure">
+    
+</div>
+
+
+
+<p>First, let's analyze the total viewing duration across all profiles</p>
+<div class="code-container">
+    <button class="copy-button" onclick="copyCode2()">Copy</button>
+    <pre><code id="code-block-4">
+        netflix.loc[netflix['Profile Name']=='Roku TV','Duration'].sum()
+    </code></pre>
+</div>
+<div class="image-container2">
+    <img src=" /img/td4.png" alt="Netflix Data Folder Structure">
+    
+</div>
+
+
+<p>First, let's analyze the total viewing duration across all profiles</p>
+<div class="code-container">
+    <button class="copy-button" onclick="copyCode2()">Copy</button>
+    <pre><code id="code-block-4">
+        netflix.loc[netflix['Profile Name']=='Roku TV','Duration'].sum()
+    </code></pre>
+</div>
+<div class="image-container2">
+    <img src=" /img/td5.png" alt="Netflix Data Folder Structure">
+    
+</div>
+
+
+<p>First, let's analyze the total viewing duration across all profiles</p>
+<div class="code-container">
+    <button class="copy-button" onclick="copyCode2()">Copy</button>
+    <pre><code id="code-block-4">
+        netflix.loc[netflix['Profile Name']=='Friends','Duration'].sum()
+    </code></pre>
+</div>
+<div class="image-container2">
+    <img src=" /img/td6.png" alt="Netflix Data Folder Structure">
+    
+</div>
+
+
+
+
+<p>We can use <strong>  Matplotlib </strong> to create a visual representation of this data</p>
+
+
+<div class="code-container">
+    <button class="copy-button" onclick="copyCode2()">Copy</button>
+    <pre><code id="code-block-4">
+        import pandas as pd
+  import seaborn as sns
+  import matplotlib.pyplot as plt
+
+  # Create a dictionary of total watch duration per profile
+  watch_duration = {
+    "Jobit": pd.Timedelta("9 days 19:42:40").total_seconds() / 3600,  # Convert to hours
+    "Roku TV": pd.Timedelta("11 days 05:53:11").total_seconds() / 3600,
+    "TV": pd.Timedelta("5 days 19:14:03").total_seconds() / 3600,
+    "Friends": pd.Timedelta("0 days 07:50:24").total_seconds() / 3600
+ }
+
+  # Convert dictionary to DataFrame
+  netflix = pd.DataFrame(list(watch_duration.items()), 
+           columns=["Profile Name", "Total Watch Hours"])
+
+  # Set Seaborn style
+  sns.set_style("whitegrid")
+
+  plt.figure(figsize=(8, 5))
+  ax = sns.barplot(data=netflix, x="Profile Name", 
+    hue = 'Profile Name',y="Total Watch Hours", palette="pastel")
+
+  # Adding values on top of the bars
+  for p in ax.patches:
+    ax.annotate(f'{p.get_height():.1f}', 
+         # Formatting number (1 decimal place)
+        (p.get_x() + p.get_width() / 2, p.get_height()),  # Position
+        ha='center', va='bottom', fontsize=12, fontweight='bold', color='black')
+
+  # Adding labels and title
+  plt.xlabel("Profile Name")
+  plt.ylabel("Total Watch Hours")
+  plt.title("Total Watch Duration per Profile (in Hours)")
+
+  # Show the plot
+  plt.show()
+
+    </code></pre>
+</div>
+
+
+
+<h2>Netflix Total Watch Duration per Profile</h2>
+    <canvas id="watchDurationChart"></canvas>
+
+    
+    <p>#The output shown below may have changed from the original visualization generated from the matplot code, 
+        here i used css and js to make it visually appeal</p>
+
+        <table id="watchTable">
+            <thead>
+                <tr>
+                    <th>Profile Name</th>
+                    <th>Total Watch Hours</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Jobit</td>
+                    <td>235.7 hours</td>
+                </tr>
+                <tr>
+                    <td>Roku TV</td>
+                    <td>269.9 hours</td>
+                </tr>
+                <tr>
+                    <td>TV</td>
+                    <td>139.2 hours</td>
+                </tr>
+                <tr>
+                    <td>Friends</td>
+                    <td>7.8 hours</td>
+                </tr>
+            </tbody>
+        </table>
+    
+
+
+        <div class="question-box">
+            
+            <ul>
+                <h3>     3. What is the average watching time (per Profile)? </h2>
+
+        </div>
+        
+
+<p>To calculate the average viewing time per profile, we need to divide the total watch duration by the number of views or interactions.</p>
+
+   
+
+
+
+
+
+
+<div class="analysis-section">
+    <h2>📺 Average Watch Time Analysis</h2>
+
+    <!-- Profile Distribution Section -->
+    <div class="analysis-step">
+        <h3>1. Profile View Distribution</h3>
+        <div class="code-container">
+            <button class="copy-button" onclick="copyCode2()">Copy</button>
+            
+            <pre><code>netflix['Profile Name'].value_counts()</code></pre>
+        </div>
+        <div class="result-box">
+            <p>Jobit: 1,835 views<br>
+            Roku TV: 1,560 views<br>
+            TV: 991 views<br>
+            Friends: 86 views</p>
+        </div>
+    </div>
+
+    <!-- Initial Calculation Section -->
+    <div class="analysis-step">
+        <h3>2. Initial Average Watch Time</h3>
+        <div class="code-container">
+            <button class="copy-button" onclick="copyCode2()">Copy</button>
+            <pre><code>       
+    # Calculation 
+    netflix.loc[netflix['Profile Name'] == 'Jobit', 'Duration'].sum()/1835
+    netflix.loc[netflix['Profile Name'] == 'Roku TV', 'Duration'].sum()/1560
+    netflix.loc[netflix['Profile Name'] == 'TV', 'Duration'].sum()/991
+    netflix.loc[netflix['Profile Name'] == 'Friends', 'Duration'].sum()/86
+</code></pre>
+        </div>
+        <div class="result-box">
+            <p>Average Watch Time:<br>
+                Jobit: 7m 42s (00:07:42.430517711')<br>
+                Roku TV: 10m 22s (00:10:22.814743589)<br>
+                TV: 8m 25s (00:08:25.795156407)<br>
+                Friends: 5m 28s (00:05:28.186046511)</p>
+        </div>
+    </div>
+
+    <!-- Filtered Analysis Section -->
+    <div class="analysis-step">
+        <h3>3. Removing Filler Content</h3>
+        <div class="code-container">
+            <pre><code>netflix_removed_fillers = netflix.loc[netflix['Supplemental Video Type'].isnull()]</code></pre>
+        </div>
+        <div class="result-box">
+            <p>New View Counts:<br>
+            Jobit: 1,193 (-35%)<br>
+            Roku TV: 904 (-42%)<br>
+            TV: 433 (-56%)<br>
+            Friends: 45 (-48%)</p>
+        </div>
+    </div>
+
+
+    <!-- Re- Calculation Section -->
+    <div class="analysis-step">
+        <h3>4. RecalculationAverage Watch Time</h3>
+        <div class="code-container">
+            <button class="copy-button" onclick="copyCode2()">Copy</button>
+            <pre><code>       
+    # Calculation 
+    netflix_removed_fillers.loc[netflix_removed_fillers['Profile Name'] 
+    == 'Jobit', 'Duration'].sum()/1193
+
+    netflix_removed_fillers.loc[netflix_removed_fillers['Profile Name'] 
+    == 'Roku TV', 'Duration'].sum()/904
+
+    netflix_removed_fillers.loc[netflix_removed_fillers['Profile Name'] 
+    == 'TV', 'Duration'].sum()/433
+
+    netflix_removed_fillers.loc[netflix_removed_fillers['Profile Name'] 
+    == 'Friends', 'Duration'].sum()/45
+
+</code></pre>
+        </div>
+        <div class="result-box">
+            <p>Average Watch Time:<br>
+                Jobit: 11m 42s (00:11:42.411567476)<br>
+                Roku TV: 17m 37s (00:17:37.879424778)<br>
+                TV: 18m 49s (00:18:49.861431870)<br>
+                Friends: 10m 01s (00:10:01.888888888)</p>
+        </div>
+    </div>
+
+
+    <!-- Filtered Results Section -->
+    <div class="analysis-step">
+        <h3>4. Improved Average Watch Time</h3>
+        <div class="comparison-box">
+            <div class="comparison-item">
+                <h4>Jobit</h4>
+                <div class="time-change">
+                    <span class="old-time">7:42</span> → 
+                    <span class="new-time">11:42</span>
+                </div>
+            </div>
+            <div class="comparison-item">
+                <h4>Roku TV</h4>
+                <div class="time-change">
+                    <span class="old-time">10:22</span> → 
+                    <span class="new-time">17:37</span>
+                </div>
+            </div>
+            <div class="comparison-item">
+                <h4>TV</h4>
+                <div class="time-change">
+                    <span class="old-time">8:25</span> → 
+                    <span class="new-time">18:49</span>
+                </div>
+            </div>
+            <div class="comparison-item">
+                <h4>Friends</h4>
+                <div class="time-change">
+                    <span class="old-time">5:28</span> → 
+                    <span class="new-time">10:01</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Key Insights Section -->
+    <div class="key-insights">
+        <h3>🔍 Key Insights</h3>
+        <ul>
+            <li>TV profile shows the most significant increase (+122%)</li>
+            <li>All profiles show improved engagement after removing trailers/previews</li>
+            <li>Roku TV maintains the longest average watch time</li>
+            <li>Friends profile shows most variability in viewing habits</li>
+        </ul>
+    </div>
+</div>
+
+
+
+ <!-- Step 1: Understanding the Calculation -->
+ <div class="section">
+    <h2>Step 1: Understanding the Calculation</h2>
+    <p>Each row in the dataset represents a viewing interaction, meaning every time a user watched something (a movie, an episode, or even a trailer), it's logged.</p>
+    <p>To find the average viewing time per interaction, the calculation used is:</p>
+    <div class="code-container">
+        <pre><code>Average Watch Time = Total Watch Duration for Profile / Total Interactions for Profile</code></pre>
+    </div>
+    <p><strong>Example:</strong></p>
+    <div class="code-container">
+        <pre><code>netflix.loc[netflix['Profile Name'] == 'Jobit', 'Duration'].sum() / 1835</code></pre>
+    </div>
+    <div class="result-box">
+        <p><strong>Explanation:</strong></p>
+        <ul>
+            <li><code>netflix.loc[netflix['Profile Name'] == 'Jobit', 'Duration']</code> → This gets the total watch time for the "Jobit" profile.</li>
+            <li><code>1835</code> → This is the total number of interactions (views) for "Jobit".</li>
+            <li>Division gives the average watch time per interaction.</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Step 2: Why Are the Average Watch Times So Low? -->
+<div class="section">
+    <h2>Step 2: Why Are the Average Watch Times So Low?</h2>
+    <p>Initially, the calculated average viewing times are less than 30 minutes per interaction. This seems strange because most people watch entire episodes (usually 20-40 mins) or movies (90+ mins).</p>
+    <p><strong>Possible Reasons:</strong></p>
+    <ul>
+        <li><strong>Netflix logs each episode separately:</strong> If a person is watching a series marathon, each episode is counted as a separate interaction. This means the total viewing duration is split across multiple interactions.</li>
+        <li><strong>Short interactions are included in the data:</strong> Netflix logs teasers, trailers, hooks, and promotional clips. These are usually a few seconds long, which reduces the average watch time.</li>
+    </ul>
+</div>
+
+<!-- Step 3: Filtering Out Short Interactions -->
+<div class="section">
+    <h2>Step 3: Filtering Out Short Interactions</h2>
+    <p>To get a more accurate estimate of the actual viewing time, we need to remove short interactions like teasers, trailers, and hooks.</p>
+    <div class="code-container">
+        <pre><code>netflix['Supplemental Video Type'].value_counts()</code></pre>
+    </div>
+    <div class="result-box">
+        <p><strong>Output:</strong></p>
+        <pre>
+Supplemental Video Type
+HOOK              1549
+TRAILER            252
+TEASER_TRAILER      70
+CINEMAGRAPH         14
+RECAP               10
+TUTORIAL             1
+PREVIEW              1
+Name: count, dtype: int64
+        </pre>
+    </div>
+    <p>To remove them, we keep only rows where <code>Supplemental Video Type</code> is <code>NaN</code> (which means they are full-length episodes or movies):</p>
+    <div class="code-container">
+        <pre><code>netflix_removed_fillers = netflix.loc[netflix['Supplemental Video Type'].isnull()]</code></pre>
+    </div>
+</div>
+
+<!-- Step 4: Recalculating the Averages -->
+<div class="section">
+    <h2>Step 4: Recalculating the Averages</h2>
+    <p>Now that the short interactions are removed, we check the updated profile interaction counts:</p>
+    <div class="code-container">
+        <pre><code>netflix_removed_fillers['Profile Name'].value_counts()</code></pre>
+    </div>
+    <div class="result-box">
+        <p><strong>Output:</strong></p>
+        <pre>
+Profile Name
+Jobit      1193
+Roku TV     904
+TV          433
+Friends      45
+Name: count, dtype: int64
+        </pre>
+    </div>
+    <p>Now, we calculate the new average watch time per interaction:</p>
+    <div class="code-container">
+        <pre><code>
+netflix_removed_fillers.loc[netflix_removed_fillers['Profile Name'] == 'Jobit', 'Duration'].sum() / 1193
+netflix_removed_fillers.loc[netflix_removed_fillers['Profile Name'] == 'Roku TV', 'Duration'].sum() / 904
+netflix_removed_fillers.loc[netflix_removed_fillers['Profile Name'] == 'TV', 'Duration'].sum() / 433
+netflix_removed_fillers.loc[netflix_removed_fillers['Profile Name'] == 'Friends', 'Duration'].sum() / 45
+        </code></pre>
+    </div>
+    <div class="result-box">
+        <p><strong>Output:</strong></p>
+        <ul>
+            <li>Jobit: 11m 42s</li>
+            <li>Roku TV: 17m 37s</li>
+            <li>TV: 18m 49s</li>
+            <li>Friends: 10m 01s</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Key Takeaways -->
+<div class="key-takeaways">
+    <h2>Key Takeaways</h2>
+    <ul>
+        <li><strong>Before Filtering:</strong> The average watch time per interaction was misleadingly low.</li>
+        <li><strong>After Filtering:</strong> The numbers increased, giving a more realistic estimate of actual viewing behavior.</li>
+        <li><strong>Profiles that browsed a lot (e.g., "Mom & Dad")</strong> showed the biggest increase in average watch time.</li>
+        <li><strong>This confirms</strong> that short interactions (trailers, hooks) had skewed the original data.</li>
+    </ul>
+</div>
+
+<!-- Summary -->
+<div class="section">
+    <h2>Summary</h2>
+    <ul>
+        <li>Filtering out short interactions was necessary to get an accurate representation of viewing habits.</li>
+        <li>Profiles with more trailers/hooks logged had artificially lower watch times.</li>
+        <li>After cleaning the data, average watch times became more reflective of real viewing behavior.</li>
+        <li>This method improves the accuracy of Netflix interaction analysis for real user behavior.</li>
+    </ul>
+</div>
+
+
+
+
+
+
+<div class="question-box">
+            
+    <ul>
+        <h3>   4.  What devices are used by which Profile? And which device is used the most? </h2>
+
+</div>
+
+
+
+
+<div class="code-container">
+    <button class="copy-button" onclick="copyCode2()">Copy</button>
+    <pre><code id="code-block-4">
+        netflix['Device Type'].value_counts()
+    </code></pre>
+</div>
+<div class="image-container2">
+    <img src=" /img/devicevalue.png" alt="Netflix Data Folder Structure">
+    
+</div>
+
+
+
+<div class="code-container">
+    <button class="copy-button" onclick="copyCode2()">Copy</button>
+    <pre><code id="code-block-4">
+        netflix['Device Type'].value_counts().plot(kind='bar')
+        plt.show()
+    </code></pre>
+</div>
+
+
+
+    <h2>Netflix Device Type Distribution</h2>
+    <canvas id="deviceChart"></canvas>
+
+
+
+<!-- Device Type Analysis Section -->
+<div class="analysis-section">
+    <h2>📱 Device Type Distribution by Profile</h2>
+
+    <!-- Jobit Profile -->
+    <div class="analysis-step">
+        <h3>Jobit Profile Devices</h3>
+        <div class="code-container">
+            <button class="copy-button" onclick="copyCode('code-block-1')">Copy</button>
+            <pre><code id="code-block-1">
+netflix.loc[netflix['Profile Name'] == 'Jobit', 'Device Type'].value_counts()
+            </code></pre>
+        </div>
+        <div class="result-box">
+            <table>
+                <tr><th>Device Type</th><th>Count</th></tr>
+                <tr><td>LG 2019 Mstar M3R Standard DTV Smart TV</td><td>843</td></tr>
+                <tr><td>Android DefaultWidevineL3Phone Android Phone</td><td>559</td></tr>
+                <tr><td>DefaultWidevineAndroidPhone</td><td>330</td></tr>
+                <tr><td>Chrome PC (Cadmium)</td><td>66</td></tr>
+                <tr><td>Safari MAC (Cadmium)</td><td>37</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Roku TV Profile -->
+    <div class="analysis-step">
+        <h3>Roku TV Profile Devices</h3>
+        <div class="code-container">
+            <button class="copy-button" onclick="copyCode('code-block-2')">Copy</button>
+            <pre><code id="code-block-2">
+netflix.loc[netflix['Profile Name'] == 'Roku TV', 'Device Type'].value_counts()
+            </code></pre>
+        </div>
+        <div class="result-box">
+            <table>
+                <tr><th>Device Type</th><th>Count</th></tr>
+                <tr><td>DefaultWidevineAndroidPhone</td><td>623</td></tr>
+                <tr><td>Roku Athens HDR Smart TV</td><td>417</td></tr>
+                <tr><td>Chrome PC (Cadmium)</td><td>324</td></tr>
+                <tr><td>Android DefaultWidevineL3Phone Android Phone</td><td>118</td></tr>
+                <tr><td>Safari MAC (Cadmium)</td><td>55</td></tr>
+                <tr><td>LG DTV 2020 WEE K6Lp HK SCPL RCA Smart TV</td><td>10</td></tr>
+                <tr><td>LG 2017 RTK K3Lp Standard UHD TV Smart TV</td><td>7</td></tr>
+                <tr><td>LG DTV 2020 WEE K6Lp TT KONKA RCA Smart TV</td><td>5</td></tr>
+                <tr><td>Edge OSS - Windows (Cadmium)</td><td>1</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- TV Profile -->
+    <div class="analysis-step">
+        <h3>TV Profile Devices</h3>
+        <div class="code-container">
+            <button class="copy-button" onclick="copyCode('code-block-3')">Copy</button>
+            <pre><code id="code-block-3">
+netflix.loc[netflix['Profile Name'] == 'TV', 'Device Type'].value_counts()
+            </code></pre>
+        </div>
+        <div class="result-box">
+            <table>
+                <tr><th>Device Type</th><th>Count</th></tr>
+                <tr><td>Roku Athens HDR Smart TV</td><td>641</td></tr>
+                <tr><td>LG 2019 Mstar M3R Standard DTV Smart TV</td><td>274</td></tr>
+                <tr><td>Apple iPhone 15 Pro Max iPhone</td><td>34</td></tr>
+                <tr><td>Chrome PC (Cadmium)</td><td>34</td></tr>
+                <tr><td>DefaultWidevineAndroidPhone</td><td>5</td></tr>
+                <tr><td>Android DefaultWidevineL3Phone Android Phone</td><td>2</td></tr>
+                <tr><td>Netflix Windows App - Cadmium Windows Mobile</td><td>1</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Friends Profile -->
+    <div class="analysis-step">
+        <h3>Friends Profile Devices</h3>
+        <div class="code-container">
+            <button class="copy-button" onclick="copyCode('code-block-4')">Copy</button>
+            <pre><code id="code-block-4">
+netflix.loc[netflix['Profile Name'] == 'Friends', "Device Type"].value_counts()
+            </code></pre>
+        </div>
+        <div class="result-box">
+            <table>
+                <tr><th>Device Type</th><th>Count</th></tr>
+                <tr><td>Edge OSS - Windows (Cadmium)</td><td>66</td></tr>
+                <tr><td>Netflix Windows App - Cadmium Windows Mobile</td><td>13</td></tr>
+                <tr><td>Safari MAC (Cadmium)</td><td>5</td></tr>
+                <tr><td>Roku Athens HDR Smart TV</td><td>1</td></tr>
+                <tr><td>DefaultWidevineAndroidPhone</td><td>1</td></tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+<h1>Conclusion: Device Usage by Profile & Most Used Device</h1>
+
+<section class="content-box">
+    <h2>Most Used Device Across All Profiles</h2>
+    <ul class="animated-list">
+        <li>📺 <strong>LG 2019 Mstar M3R Standard DTV Smart TV</strong> - <b>1,117</b> interactions.</li>
+        <li>📺 <strong>Roku Athens HDR Smart TV</strong> - <b>1,059</b> interactions.</li>
+        <li>📱 <strong>DefaultWidevineAndroidPhone</strong> (Android phones) - <b>959</b> interactions.</li>
+    </ul>
+
+    <h2>Device Usage by Each Profile</h2>
+
+    <div class="profile-box">
+        <h3>✅ Jobit Profile:</h3>
+        <ul>
+            <li><strong>Most Used:</strong> LG 2019 Mstar M3R Smart TV (843 interactions)</li>
+            <li><strong>Second Most Used:</strong> Android DefaultWidevineL3Phone (559 interactions)</li>
+            <li><strong>Less Usage:</strong> Safari MAC (37), Chrome PC (66)</li>
+        </ul>
+    </div>
+
+    <div class="profile-box">
+        <h3>✅ Roku TV Profile:</h3>
+        <ul>
+            <li><strong>Most Used:</strong> DefaultWidevineAndroidPhone (623 interactions)</li>
+            <li><strong>Second Most Used:</strong> Roku Athens HDR Smart TV (417 interactions)</li>
+            <li><strong>Other Devices:</strong> Chrome PC, Android Phone, Safari, and rare usage of Windows devices.</li>
+        </ul>
+    </div>
+
+    <div class="profile-box">
+        <h3>✅ TV Profile:</h3>
+        <ul>
+            <li><strong>Most Used:</strong> Roku Athens HDR Smart TV (641 interactions)</li>
+            <li><strong>Second Most Used:</strong> LG 2019 Mstar M3R Standard DTV Smart TV (274 interactions)</li>
+            <li><strong>Least Used:</strong> Netflix Windows App, Android phones, Apple iPhone.</li>
+        </ul>
+    </div>
+
+    <div class="profile-box">
+        <h3>✅ Friends Profile:</h3>
+        <ul>
+            <li><strong>Most Used:</strong> Edge OSS - Windows (Cadmium) (66 interactions)</li>
+            <li><strong>Second Most Used:</strong> Netflix Windows App (13 interactions)</li>
+            <li><strong>Least Used:</strong> Roku TV, Safari MAC, Android phone.</li>
+        </ul>
+    </div>
+
+</section>
+
+
+<div class="analysis-section">
+    <h2>🎬 Content Popularity Analysis</h2>
+
+    <!-- Most Watched Title Section -->
+    <div class="analysis-step">
+        <h3>1. Most Popular Title</h3>
+        <div class="code-container">
+            <pre><code>netflix['Title'].value_counts().head()</code></pre>
+        </div>
+        <div class="result-box highlight">
+            <p>Top 5 Most Watched Titles:</p>
+            <ul class="title-list">
+                <li>Anweshippin Kandethum (18 views)</li>
+                <li>Hidden Strike (15 views)</li>
+                <li>RDX (13 views)</li>
+                <li>Devara (13 views)</li>
+                <li>Kuttavum Shikshayum (12 views)</li>
+            </ul>
+            <div class="key-fact">
+                🏆 <strong>Winner:</strong> 'Anweshippin Kandethum' with 18 watches
+            </div>
+        </div>
+    </div>
+
+    <!-- Common Titles Section -->
+    <div class="analysis-step">
+        <h3>2. Titles Watched by All Profiles</h3>
+        <div class="code-container">
+            <pre><code>titles_watched_by_profiles = netflix.groupby("Title")["Profile Name"].nunique()
+all_profiles_count = netflix["Profile Name"].nunique()
+titles_watched_by_all = titles_watched_by_profiles[titles_watched_by_profiles == all_profiles_count]</code></pre>
+        </div>
+        <div class="result-box">
+            <p>Commonly Watched Titles Across All 4 Profiles:</p>
+            <table class="profile-table">
+                <tr>
+                    <th>Title</th>
+                    <th>Profile Count</th>
+                </tr>
+                <tr>
+                    <td>Anweshippin Kandethum</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>Devara</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>Trailer: Kalki 2898 AD</td>
+                    <td>4</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Key Takeaways -->
+    <div class="key-takeaways">
+        <h3>🔍 Key Observations</h3>
+        <ul>
+            <li>Malayalam crime thriller "Anweshippin Kandethum" dominates viewing</li>
+            <li>3 titles were universally watched across all profiles</li>
+            <li>Trailer for upcoming film "Kalki 2898 AD" generated cross-profile interest</li>
+            <li>Top 5 titles account for 71 watches (~4% of total views)</li>
+        </ul>
+    </div>
+</div>
+
+<style>
+    .title-list {
+        list-style-type: none;
+        padding-left: 0;
+    }
+    
+    .title-list li {
+        padding: 5px 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    .profile-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    .profile-table th, .profile-table td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .profile-table th {
+        background-color: #f8f9fa;
+    }
+
+    .key-fact {
+        margin-top: 15px;
+        padding: 10px;
+        background-color: #e6f4ea;
+        border-radius: 4px;
+        color: #137333;
+    }
+
+    .highlight {
+        border-left: 4px solid #34a853;
+        background-color: #f8f9fa;
+    }
+
+    .key-takeaways {
+        margin-top: 25px;
+        padding: 20px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+    }
+</style>
+
+
+                <p>Analyzing Netflix data allows us to uncover viewing preferences, habits, and trends that can help improve content recommendations and enhance user experience.</p>
+            </article>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; JJ Blog. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
